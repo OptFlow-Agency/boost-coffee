@@ -1,0 +1,105 @@
+/* BOOST design tokens. Every colour and face on the site comes from here.
+   Change a brand colour once in this block and every section, asset and state follows. */
+@theme static {
+  /* type scale (fluid) */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5625rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --text-lead: clamp(1.125rem, 0.45vw + 1rem, 1.4375rem);
+  --text-title: clamp(1.5rem, 1.4vw + 1rem, 2.5rem);
+  --text-display-s: clamp(2rem, 3.4vw + 0.75rem, 4rem);
+  --text-section: clamp(2.75rem, 6vw + 0.5rem, 7rem);
+  --text-statement: clamp(2rem, 3.6vw + 0.75rem, 4.5rem);
+  --text-mega: clamp(5.5rem, 26vw, 23rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-hover: cubic-bezier(0.22, 1.0, 0.36, 1);
+
+  --color-error: oklch(52% 0.19 27);
+  --color-success: oklch(50% 0.12 150);
+
+  /* Boost palette (supplied): #09251C #A55704 #F3D2AF #F8EBDF #0A400C #819067 #B2AE88 #163022 */
+  --color-paper: #F8EBDF;   /* cream */
+  --color-paper-2: #F3D2AF; /* peach, as a second paper */
+  --color-paper-3: #EBDCC9;
+  --color-ink: #09251C;     /* deep green, all text and outlines */
+  --color-ink-2: #163022;   /* dark green */
+  --color-muted: #3F5446;
+  --color-rule: #09251C;
+
+  /* the field colours, one per section */
+  --color-orange: #A55704;
+  --color-peach: #F3D2AF;
+  --color-khaki: #B2AE88;
+  --color-forest: #0A400C;
+  --color-sage: #819067;
+
+  /* the logo, exactly as supplied */
+  --color-logo: #2A7C13;
+  --color-logo-ink: #0A0A0A; /* the logo's black, a hair off pure */
+
+  /* what goes in the cup */
+  --color-espresso: #3A2215;
+  --color-crema: #C98A4B;
+  --color-milk: #FCF5EC;
+  --color-matcha: #8FA05A;
+  --color-ice: #FFFBF6;
+
+  --color-accent: var(--color-orange);
+  --color-accent-ink: var(--color-paper);
+  --color-focus: var(--color-ink);
+
+  --font-display: var(--font-clash), "Clash Display", ui-sans-serif, sans-serif;
+  --font-body: var(--font-satoshi), "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: var(--font-display);
+
+  --radius-card: 28px;
+  --radius-pill: 999px;
+  --shadow-card: none;
+  --tracking-display: -0.025em;
+  --stroke: 3px;
+  --offset: 6px;
+}
+:root {
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 144px;
+  --space-5xl: 200px;
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+  --container: 1520px;
+  --gutter: 48px;
+  --gap-columns: 32px;
+  --section-gap-s: 120px;
+  --section-gap: 160px;
+  --section-gap-l: 220px;
+  --nav-h: 88px;
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-sticky-nav: 300;
+  --z-modal: 400;
+  --z-curtain: 450;
+  --z-toast: 500;
+  --z-tooltip: 600;
+  --z-cursor: 700;
+  --z-preloader: 800;
+  --rule-hair: 1px;
+}
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 88px; --section-gap: 112px; --section-gap-l: 140px; --nav-h: 76px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 64px; --section-gap: 88px; --section-gap-l: 112px; --gap-columns: 16px; --nav-h: 68px; --stroke: 2.5px; --offset: 4px; } }
