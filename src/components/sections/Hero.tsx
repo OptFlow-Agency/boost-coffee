@@ -4,8 +4,8 @@ import { useRef } from "react";
 import { site } from "@/content/site";
 import { gsap, ScrollTrigger, SplitText, useGSAP, finePointer, reducedMotion } from "@/lib/gsap";
 import { introReady } from "@/lib/intro";
-import { Bean, Splash, Steam } from "@/components/svg/Coffee";
-import { HeroCup } from "@/components/svg/HeroCup";
+import Image from "next/image";
+import { Bean } from "@/components/svg/Coffee";
 import { Logo } from "@/components/svg/Logo";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { TransitionLink } from "@/components/ui/TransitionLink";
@@ -37,9 +37,7 @@ export function Hero() {
           .from(letters, { yPercent: 120, rotate: 6, duration: 1.3, stagger: 0.075, ease: "expo.out" })
           .from(split.lines, { yPercent: 110, duration: 1.1, stagger: 0.08, ease: "expo.out" }, 0.3)
           .from([el.querySelector(".hero__lede"), el.querySelector(".hero__actions")], { y: 28, opacity: 0, duration: 1, stagger: 0.08, ease: "power4.out" }, 0.5)
-          .from(el.querySelector(".hero__splash"), { scale: 0.4, rotate: -30, opacity: 0, duration: 1.3, ease: "expo.out" }, 0.25)
           .from(el.querySelector(".hero__cup"), { yPercent: 40, rotate: 10, opacity: 0, duration: 1.4, ease: "expo.out" }, 0.35)
-          .from(el.querySelectorAll(".steam-line"), { drawSVG: "0%", duration: 1.4, stagger: 0.12, ease: "power2.out" }, 0.8)
           .from(el.querySelectorAll(".bean-wrap"), { scale: 0, rotate: -90, duration: 1.2, stagger: 0.06, ease: "expo.out" }, 0.6)
           .from(el.querySelector(".hero__sticker"), { scale: 0, rotate: -40, duration: 1, ease: "expo.out" }, 1);
         introReady.then(() => intro.play());
@@ -54,7 +52,6 @@ export function Hero() {
           const d = Number(b.dataset.depth);
           gsap.to(b, { y: -220 * d, rotate: `+=${90 * d}`, ease: "none", scrollTrigger: st });
         });
-        gsap.to(el.querySelector(".hero__steam"), { y: -80, opacity: 0.2, ease: "none", scrollTrigger: st });
       });
 
       // ---- pointer: beans drift by depth, letters ripple like liquid ----
@@ -69,9 +66,6 @@ export function Hero() {
         x: gsap.quickTo(b, "x", { duration: 1.2, ease: "expo.out" }),
         y: gsap.quickTo(b, "y", { duration: 1.2, ease: "expo.out" }),
       }));
-      const steam = el.querySelector(".hero__steam");
-      const sx = gsap.quickTo(steam, "x", { duration: 1.6, ease: "expo.out" });
-      const sk = gsap.quickTo(steam, "skewX", { duration: 1.6, ease: "expo.out" });
 
       const mega = el.querySelector<HTMLElement>(".mega")!;
       const disp = document.querySelector("#liquid feDisplacementMap")!;
@@ -100,8 +94,6 @@ export function Hero() {
           m.x(nx * 60 * m.d);
           m.y(ny * 50 * m.d);
         });
-        sx(nx * 24);
-        sk(nx * -8);
         const v = Math.min(60, Math.hypot(e.clientX - lx, e.clientY - ly));
         lx = e.clientX;
         ly = e.clientY;
@@ -163,9 +155,7 @@ export function Hero() {
         </div>
 
         <div className="hero__art" aria-hidden="true">
-          <Splash className="hero__splash" tone="f-sage" />
-          <Steam className="hero__steam" />
-          <HeroCup className="hero__cup" />
+          <Image className="hero__cup" src="/images/hero-cup.png" alt="" width={1254} height={1254} priority sizes="(max-width: 960px) 78vw, 560px" />
           <p className="hero__sticker">
             <span>Ink on</span>
             <span>every cup</span>

@@ -236,9 +236,7 @@ html.js .preloader { display: grid; animation: preloader-failsafe 0.01s linear 6
 .hero__art {
   grid-column: 8 / span 5; grid-row: 1 / span 4; align-self: center; position: relative; z-index: 1; aspect-ratio: 1 / 1; width: min(100%, 560px); justify-self: end;
 }
-.hero__splash { position: absolute; inset: 2% 0 0 4%; width: 96%; height: auto; overflow: visible; }
-.hero__cup { position: absolute; left: 25%; top: 8%; width: 50%; height: auto; overflow: visible; rotate: 6deg; }
-.hero__steam { position: absolute; left: 36%; top: -16%; width: 28%; height: auto; overflow: visible; }
+.hero__cup { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .hero__sticker {
   position: absolute; right: 2%; bottom: 14%; z-index: 2; rotate: -11deg;
   display: grid; justify-items: center; padding: var(--space-md) var(--space-lg); border-radius: var(--radius-pill);
@@ -257,7 +255,8 @@ html.js .preloader { display: grid; animation: preloader-failsafe 0.01s linear 6
   .hero { min-height: 100svh; align-items: stretch; padding-top: calc(var(--nav-h) + var(--space-2xl)); padding-bottom: var(--space-xl); }
   .hero > .hero__in { grid-template-rows: auto auto auto auto minmax(0, 1fr); }
   .mega, .hero__tagline, .hero__lede, .hero__actions { grid-column: 1 / -1; }
-  .hero__art { grid-column: 1 / -1; grid-row: 5; align-self: center; justify-self: center; width: min(78%, 420px); margin-top: var(--space-3xl); }
+  .hero__art { grid-column: 1 / -1; grid-row: 5; align-self: stretch; justify-self: center; width: min(100%, 460px); aspect-ratio: auto; min-height: 240px; margin-top: var(--space-lg); }
+  .hero__sticker { right: 0; bottom: 4%; padding: var(--space-sm) var(--space-md); font-size: var(--text-md); }
   .bean--1, .bean--2 { display: none; }
   .bean--3 { top: 66%; right: 0; width: 52px; }
   .bean--4 { top: 94%; left: 4%; }
